@@ -3,4 +3,8 @@ env
 auth.pyc
 main.pyc
 config.pyc
+<<<<<<< HEAD
 __pycache__
+=======
+__pycache__/config.cpython-39.pyc
+>>>>>>> d3871fe02bff5518a6d7c4d9190a2335e50363a8
