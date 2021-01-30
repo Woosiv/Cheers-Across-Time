@@ -1,2 +1,3 @@
 # MentalHealthHack2021
-A mental health app for everybody to use :D
+## Why?
+Starting from 2020, we've been locked down in our houses, and so, depression began sadge.
