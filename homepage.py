@@ -12,5 +12,5 @@ def open_browser():
     webbrowser.open_new_tab(url)
 
 if __name__ == '__main__':
-    Timer(1, open_browser).start()
-    app.run(debug=True)
+    Timer(0, open_browser).start()
+    app.run(debug=True, use_reloader=False)
