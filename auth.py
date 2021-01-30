@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
@@ -31,8 +31,10 @@ def signup():
         # user is a User that has that username
         user = User.query.filter_by(username=username).first()
 
-        # if the user already exists, do something? FIX
+        # If the user already exists, prompt the user with the error
+        # and redirect them to signup again.
         if user:
+            flash("Username already exists")
             return redirect(url_for('auth.signup'))
         
         # Hash the password
