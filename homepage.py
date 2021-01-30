@@ -2,8 +2,18 @@ from flask import Flask, render_template, request
 from threading import Timer
 import time
 import webbrowser
+from flask_sqlalchemy import SQLAlchemy
+
+# init SQLAlchemy
+db = SQLAlchemy()
 
 app = Flask(__name__, static_url_path='', static_folder='static')
+
+# Configure app
+app.config.from_object('config.Config')
+
+db.init_app(app)
+
 #HomePage
 @app.route('/')
 def root():
