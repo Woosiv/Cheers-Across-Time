@@ -14,22 +14,26 @@ app.config.from_object('config.Config')
 
 db.init_app(app)
 
-#HomePage
+#Home Page
 @app.route('/')
 def root():
     print("sending to home")
     return app.send_static_file('home.html')
 
 # Login Page
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login', methods=['POST'])
 def login():
-    if request.method == 'POST':
-        print("reached here")
-        print(request.form['username'])
-        print(request.form['password'])
-        return app.send_static_file('home.html')
+    #if request.method == 'POST':
+    user = request.form['username']
+    password = request.form['password']
+    if verifyLogin(user, password):
+        print('correct user login')
+        return redirect(url_for('homepage', username = user))
     else:
-        return app.send_static_file('login.html')
+        print('failed login')
+        return redirect(url_for('login'))
+    #else:
+        #return app.send_static_file('login.html')
 
 # About
 @app.route('/#')
