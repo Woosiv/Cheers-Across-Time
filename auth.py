@@ -27,7 +27,9 @@ def signup():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-
+        cPassword = request.form.get('passwordConfirm')
+        firstName = request.form['firstName']
+        lastName = request.form['lastName']
         # user is a User that has that username
         user = User.query.filter_by(username=username).first()
 
