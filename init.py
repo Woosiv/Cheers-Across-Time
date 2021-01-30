@@ -28,21 +28,6 @@ def root():
     print("sending to home")
     return app.send_static_file('home.html')
 
-# Login Page
-@app.route('/login', methods=['POST'])
-def login():
-    #if request.method == 'POST':
-    user = request.form['username']
-    password = request.form['password']
-    if verifyLogin(user, password):
-        print('correct user login')
-        return redirect(url_for('homepage', username = user))
-    else:
-        print('failed login')
-        return redirect(url_for('login'))
-    #else:
-        #return app.send_static_file('login.html')
-
 # About
 @app.route('/#')
 def about():
