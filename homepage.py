@@ -9,10 +9,6 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-def open_browser():
-    url = "http://127.0.0.1:5000/"
-    webbrowser.open_new_tab(url)
-
 # Login Page
 @app.route('/login')
 def login():
