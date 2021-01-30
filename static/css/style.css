@@ -1,6 +1,11 @@
 h1 {
+<<<<<<< HEAD
     border: 2px rgb(74, 83, 161) solid;
     color: rgb(47, 47, 197);
+=======
+    border: 2px rgb(208, 167, 255) solid;
+    color: rgb(110, 110, 231);
+>>>>>>> 880e23020b8766f46d7338db7d77be1ba2398de6
     text-align: center;
     padding: 10px;
 }
