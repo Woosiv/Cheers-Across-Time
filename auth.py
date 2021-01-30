@@ -37,6 +37,14 @@ def signup():
         pass
         #return redirect(url_for())
     
-    # create a new user user
+    # Hash the password
+    hashedPassword = generate_password_hash(password, method='sha256')
+
+    # Create a new user user using the form data.
+    new_user = User(username=username, password=hashedPassword)
+
+    # add the new user to the database
+    db.session.add(new_user)
+    db.session.commit()
 
 
