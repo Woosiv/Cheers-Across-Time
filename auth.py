@@ -30,25 +30,30 @@ def signup():
         cPassword = request.form.get('passwordConfirm')
         firstName = request.form['firstName']
         lastName = request.form['lastName']
+
+        # # Compares password to confirmation of password
+        # if password != cPassword:
+        #     flash("Password and password confirmation do not match.")
+
         # user is a User that has that username
         user = User.query.filter_by(username=username).first()
 
         # If the user already exists, prompt the user with the error
         # and redirect them to signup again.
         if user:
-            flash("Username already exists")
+            flash("Username already exists.")
             return redirect(url_for('auth.signup'))
         
         # Hash the password
         hashedPassword = generate_password_hash(password, method='sha256')
 
         # Create a new user user using the form data.
-        new_user = User(username=username, password=hashedPassword)
+        new_user = User(firstName = firstName, lastName = lastName, username=username, password=hashedPassword)
 
         # add the new user to the database
         db.session.add(new_user)
         db.session.commit()
 
         return redirect(url_for('main.root'))
-    
-    return render_template('signup.html')
+    else:
+        return render_template('signup.html')

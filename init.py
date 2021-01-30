@@ -31,8 +31,11 @@ def open_browser():
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    firstName = db.Column(db.String(100))
+    lastName = db.Column(db.String(100))
     username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+
 
 if __name__ == '__main__':
     #Timer(0, open_browser).start()
