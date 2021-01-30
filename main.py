@@ -8,7 +8,3 @@ def root():
     print("sending to home")
     return render_template('home.html')
 
-# About
-@main.route('/#')
-def about():
-    return render_template('about.html')
