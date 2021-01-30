@@ -14,6 +14,15 @@ def home():
 def login():
     return "Log in"
 
+# About
+@app.route('/#')
+def about():
+    return render_template('about.html')
+
+def open_browser():
+    url = "http://127.0.0.1:5000/"
+    webbrowser.open_new_tab(url)
+
 if __name__ == '__main__':
     Timer(0, open_browser).start()
     app.run(debug=True, use_reloader=False)
