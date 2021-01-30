@@ -1,2 +1,5 @@
 .env
 env
+auth.pyc
+main.pyc
+config.pyc
