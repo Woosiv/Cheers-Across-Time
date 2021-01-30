@@ -1,2 +1,2 @@
 # MentalHealthHack2021
-Testing
+A mental health app for everybody to use :D
