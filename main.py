@@ -8,3 +8,8 @@ def root():
     print("sending to home")
     return render_template('home.html')
 
+#Activity
+@main.route('/Activity')
+def activity():
+    return render_template('activity.html')
+
