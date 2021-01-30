@@ -3,3 +3,4 @@ env
 auth.pyc
 main.pyc
 config.pyc
+__pycache__
