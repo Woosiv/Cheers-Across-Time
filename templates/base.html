@@ -31,6 +31,7 @@
       color: #818181;
       display: block;
       transition: 0.3s;
+      text-align: left;
     }
     
     .sidebar a:hover {
@@ -71,12 +72,11 @@
       <a href="{{ url_for('main.root')}}">Mental Health</a>
       <a href="{{ url_for('main.activity')}}">Activity</a>
       <a href="{{ url_for('auth.login')}}">Login</a>
+      <a href="{{ url_for('auth.signup')}}">Sign Up</a>
     </div>
     
     <div id="main">
-      <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
-      <h2>Collapsed Sidebar</h2>
-      <p>Click on the hamburger menu/bar icon to open the sidebar, and push this content to the right.</p>
+      <button class="openbtn" onclick="openNav()">☰</button>  
     </div>
     
     <script>

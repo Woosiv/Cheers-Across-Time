@@ -23,11 +23,16 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-db.create_all(app=app)
+#db.create_all(app=app)
 
 def open_browser():
     url = "http://127.0.0.1:5000/"
     webbrowser.open_new_tab(url)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
 
 if __name__ == '__main__':
     #Timer(0, open_browser).start()

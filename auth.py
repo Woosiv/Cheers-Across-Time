@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-
 
 auth = Blueprint('auth', __name__)
 
@@ -24,27 +22,29 @@ def login():
 def verifyLogin(username, password):
     return username != 'fail'
 
-@auth.route('/signup', methods=['POST'])
+@auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    username = request.form.get('username')
-    password = request.form.get('password')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
 
-    # user is a User that has that username
-    user = User.query.filter_by(username=username).first()
+        # user is a User that has that username
+        user = User.query.filter_by(username=username).first()
 
-    # if the user already exists, do something? FIX
-    if user:
-        pass
-        #return redirect(url_for())
+        # if the user already exists, do something? FIX
+        if user:
+            return redirect(url_for('auth.signup'))
+        
+        # Hash the password
+        hashedPassword = generate_password_hash(password, method='sha256')
+
+        # Create a new user user using the form data.
+        new_user = User(username=username, password=hashedPassword)
+
+        # add the new user to the database
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect(url_for('main.root'))
     
-    # Hash the password
-    hashedPassword = generate_password_hash(password, method='sha256')
-
-    # Create a new user user using the form data.
-    new_user = User(username=username, password=hashedPassword)
-
-    # add the new user to the database
-    db.session.add(new_user)
-    db.session.commit()
-
-
+    return render_template('signup.html')
