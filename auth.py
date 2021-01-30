@@ -1,6 +1,6 @@
-from flask import blueprint
+from flask import Blueprint
 
-auth = blueprint('auth', __name__)
+auth = Blueprint('auth', __name__)
 
 # Login Page
 @auth.route('/login', methods=['POST'])
@@ -17,7 +17,11 @@ def login():
     #else:
         #return app.send_static_file('login.html')
 
-@auth.rout('/signup')
+# Verifies the login with the database
+def verifyLogin(username, password):
+    return username == 'fail'
+
+@auth.route('/signup')
 def signup():
     pass
 
