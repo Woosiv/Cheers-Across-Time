@@ -3,6 +3,7 @@ from threading import Timer
 import time
 import webbrowser
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 # init SQLAlchemy
 db = SQLAlchemy()
@@ -22,7 +23,9 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-
+print("Secret Key", app.config["SECRET_KEY"])
+print(os.getenv("SECRET_KEY"))
+# db.create_all(app=app)
 
 def open_browser():
     url = "http://127.0.0.1:5000/"
