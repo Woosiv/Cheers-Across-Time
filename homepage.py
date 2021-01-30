@@ -3,9 +3,15 @@ from threading import Timer
 import webbrowser
 
 app = Flask(__name__)
+# Home page
 @app.route('/')
 def home():
     return "Hey there!"
+
+# Login Page
+@app.route('/login')
+def login():
+    return "Log in"
 
 def open_browser():
     url = "http://127.0.0.1:5000/"
