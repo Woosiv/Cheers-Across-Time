@@ -22,16 +22,7 @@ app.register_blueprint(auth_blueprint)
 from main import main as main_blueprint
 app.register_blueprint(main_blueprint)
 
-#Home Page
-@app.route('/')
-def root():
-    print("sending to home")
-    return app.send_static_file('home.html')
 
-# About
-@app.route('/#')
-def about():
-    return render_template('about.html')
 
 def open_browser():
     url = "http://127.0.0.1:5000/"
