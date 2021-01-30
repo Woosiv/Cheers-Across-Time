@@ -1,4 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+from models import User
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 auth = Blueprint('auth', __name__)
 
@@ -21,8 +24,19 @@ def login():
 def verifyLogin(username, password):
     return username != 'fail'
 
-@auth.route('/signup')
+@auth.route('/signup', methods=['POST'])
 def signup():
-    pass
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    # user is a User that has that username
+    user = User.query.filter_by(username=username).first()
+
+    # if the user already exists, do something? FIX
+    if user:
+        pass
+        #return redirect(url_for())
+    
+    # create a new user user
 
 
