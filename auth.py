@@ -23,6 +23,6 @@ def verifyLogin(username, password):
 
 @auth.route('/signup')
 def signup():
-    pass
+    return render_template('signup.html')
 
 
