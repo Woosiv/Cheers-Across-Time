@@ -16,7 +16,7 @@
             h2{
             width: 20px;
             height: 20px;
-            background-color: red;
+            background-color: rgb(57, 189, 254);
             position: relative;
             animation-name: ball;
             animation-duration: 7s;
@@ -34,4 +34,27 @@
             }
         </style>
     </h2>
+    <h3 class="ball">
+        <style>
+            h3{
+            width: 1px;
+            height: 1px;
+            background-color: rgb(57, 189, 254);
+            position: relative;
+            animation-name: ball2;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+            box-shadow: 5px 6px gray;
+            border: 2px rgb(152, 173, 165) solid;
+            }
+
+            @keyframes ball2 {
+                0%   {background-color:rgb(1, 226, 188); left:1120px; top:-155px;}
+                25%  {background-color:rgb(1, 226, 188); left:1120px; top:-30px;}
+                50%  {background-color:rgb(57, 189, 254); left:-30px; top:-30px;}
+                75%  {background-color:rgb(57, 189, 254); left:-30px; top:-155px;}
+                100% {background-color:rgb(1, 226, 188); left:1120px; top:-155px;}
+            }
+        </style>
+    </h3>
 {% endblock %}
