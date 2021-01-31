@@ -3,36 +3,40 @@
 {% block content %}
 {% with messages = get_flashed_messages() %}
 {% if messages %}
-    <div class="notification is-danger">
-        {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+    <div class="alert alert-danger">
+        {{ messages[0] }}.
     </div>
 {% endif %}
 {% endwith %}
-<div class = "column is -4 is-offset-4">
-    <h2 class="title">Login
-        <style>
-            h2{
-                border: 2px rgb(208, 167, 255) solid;
-                text-align: center;
-                background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
-            }
-        </style>
-    </h2>
+<h2 class="title shadow p-3 mb-5">Login
+    <style>
+        h2{
+            text-align: center;
+            background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
+        }
+    </style>
+</h2>
 </br>
-    <div class="box">
-        <form class="form-signin" method = 'POST' action = '/login'>
+<div class="box shadow p-3 mb-5">
+    <form class="form-signin" method = 'POST' action = '/login'>
+        <div class="form-group">
             <label for="username" class="sr-only">Username</label>
             <input type="username" name="username" class="form-control" placeholder="Username" required>
             </br>
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" class="form-control" placeholder="Password" required>
             </br>
-            <button class="btn btn-lg btn-primary btn-block">Sign in</button>
-        </form>
-    </br>
-        <a class="btn btn-lg btn-secondary btn-block" href="{{ url_for('auth.signup') }}">Create an Account</a>
-    </br>
-        <button class="btn btn-lg btn-secondary btn-block">Forgot Password?</button>
-    </div>
+            <button class="btn btn btn-primary btn-block">Sign in</button>
+        </div>
+        <div class="form-row">
+            <div class ="col-md-6">
+                <a class="btn btn btn-secondary btn-block" href="{{ url_for('auth.signup') }}">Create an Account</a>
+            </div>
+            <div class ="col-md-6">
+                <button class="btn btn btn-secondary btn-block">Forgot Password?</button>
+            </div>
+        </div>
+    </form>
 </div>
+
 {% endblock %}
