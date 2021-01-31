@@ -1,13 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to Mental Health! {% endblock %}
+    <h1 class="title">{% block title %} Welcome to Mental Health! {% endblock %}
         <style>
             h1{
-                border: 2px rgb(208, 167, 255) solid;
+                border: 2px rgb(152, 173, 165) solid;
                 text-align: center;
-                background-image: linear-gradient(to right,rgb(203,246,255),rgb(200,255,225));
+                background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
             }
+            
         </style>
     </h1>
+    <h2 class="ball">
+        <style>
+            h2{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: relative;
+            animation-name: ball;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+            box-shadow: 5px 6px gray;
+            border: 2px rgb(152, 173, 165) solid;
+            }
+
+            @keyframes ball {
+                0%   {background-color:rgb(57, 189, 254); left:-30px; top:0px;}
+                25%  {background-color:rgb(57, 189, 254); left:-30px; top:-120px;}
+                50%  {background-color:rgb(1, 226, 188); left:1120px; top:-120px;}
+                75%  {background-color:rgb(1, 226, 188); left:1120px; top:0px;}
+                100% {background-color:rgb(57, 189, 254); left:-30px; top:0px;}
+            }
+        </style>
+    </h2>
 {% endblock %}
