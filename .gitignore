@@ -3,5 +3,5 @@ env
 auth.pyc
 main.pyc
 config.pyc
-__pycache__
+__pycache__/
 .vscode/settings.json
