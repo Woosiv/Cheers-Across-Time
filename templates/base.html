@@ -8,7 +8,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>{% block title %} {% endblock %}</title>
     <style>
 
     .title{
@@ -24,7 +23,7 @@
     .sidebar {
       height: 100%;
       width: 0;
-      right: 0;
+      left: 0;
       position: fixed;
       z-index: 0;
       top: 0;
@@ -34,6 +33,7 @@
       padding-top: 60px;
       border-radius: 0px ;
       box-shadow: 0px 0px #808080 ;
+      float: left;
     }
 
     .sidebar a {
@@ -43,7 +43,7 @@
       color: #818181;
       display: block;
       transition: 0.3s;
-      text-align: right;
+      text-align: left;
     }
     
     .sidebar a:hover {
@@ -53,9 +53,9 @@
     .sidebar .closebtn {
       position: absolute;
       top: 0;
-      right: 25px;
+      right: 10px;
       font-size: 36px;
-      margin-left: 50px;
+      margin-right: 0;
     }
     
     .openbtn {
@@ -72,9 +72,21 @@
     }
     
     #main {
-      transition: margin-right .5s;
+      transition: margin-left .5s;
       padding: 20px;
-      text-align: right;
+      text-align: left;
+    }
+
+    #content { 
+      border:1px solid #000; 
+      height:700px; 
+      margin-left: 200px;;
+      padding:10px; 
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidebar {padding-top: 15px;}
+      .sidebar a {font-size: 18px;}
     }
     /* body{
         background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -95,6 +107,12 @@
   </style>
   </head>
   <body>
+    <title id="title">{% block title %} {% endblock %}</title>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button>  
+    </div>
+
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a class = "text-nowrap" href="{{ url_for('main.root')}}">Mental Health</a>
@@ -102,20 +120,20 @@
       <a class = "text-nowrap" href="{{ url_for('auth.login')}}">Login</a>
       <a class = "text-nowrap" href="{{ url_for('auth.signup')}}">Sign Up</a>
     </div>
-    
-    <div id="main">
-      <button class="openbtn" onclick="openNav()">☰</button>  
-    </div>
+
+    <!-- <div id="content">
+        <p>Hello</p>
+    </div> -->
     
     <script>
     function openNav() {
       document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginRight = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
     }
     
     function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginRight= "0";
+      document.getElementById("mySidebar").style.width = "0px";
+      document.getElementById("main").style.marginLeft= "0px";
     }
 
     function getHeight(){

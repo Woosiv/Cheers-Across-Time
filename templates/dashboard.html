@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<h class = "title shadow"> Welcome {{username}} </h>   
+<div class = "row">
+    <div class = "col-md-7 shadow">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div class = "col-md-4 offset-md-1 shadow">
+    </div>
+</div>
+<div class = "row">
+    <div class = "col-md-7 shadow">
+        <h1>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">How are you feeling today?</button>
+        
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="position: absolute; left: 20%; top: 20%">
+                  <div class="modal-content" style="width:1250px;">
+                    <div class="modal-header" style="width:1250px;">
+                      <h5 class="modal-title" id="exampleModalLabel">How are you feeling today?</h5>
+                    </div>
+                    <div class="modal-body" style="width:1250px;">
+                        <div class = "row justify-content-md-center">
+                            <div class = "col-md-2">
+                        <button type = "submit" name = "crying" value = "0" style="background-color: transparent; border-color: transparent;">
+                        <img src="https://images.emojiterra.com/google/android-11/128px/1f62d.png"/>
+                        </button>
+                        </div>
+                        <div class = "col-md-2">
+                        <button type = "submit" name = "sad" value = "1" style="background-color: transparent; border-color: transparent;">
+                        <img src="https://images.emojiterra.com/google/android-11/128px/2639.png"/>
+                        </button>
+                    </div>
+                    <div class = "col-md-2">
+                        <button type = "submit" name = "neutral" value = "2" style="background-color: transparent; border-color: transparent;">
+                        <img src="https://images.emojiterra.com/google/android-11/128px/1f610.png"/>
+                        </button>
+                    </div>
+                    <div class = "col-md-2">
+                        <button type = "submit" name = "smiling" value = "3" style="background-color: transparent; border-color: transparent;">
+                        <img src="https://images.emojiterra.com/google/android-11/128px/1f642.png"/>
+                        </button>
+                    </div>
+                    <div class = "col-md-2">
+                        <button type = "submit" name = "laughing" value = "4" style="background-color: transparent; border-color: transparent;">
+                        <img src="https://images.emojiterra.com/google/android-11/128px/1f604.png"/>
+                        </button>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </h1>
+    </div>
+    <div class = "col-md-4 offset-md-1 shadow">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
+{% endblock %}
