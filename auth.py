@@ -33,9 +33,10 @@ def signup():
         firstName = request.form['firstName']
         lastName = request.form['lastName']
 
-        # # Compares password to confirmation of password
-        # if password != cPassword:
-        #     flash("Password and password confirmation do not match.")
+        # Compares password to confirmation of password
+        if password != cPassword:
+            flash("Password and password confirmation do not match.")
+            return redirect(url_for('auth.signup'))
 
         # user is a User that has that username
         user = User.query.filter_by(username=username).first()
