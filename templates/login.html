@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% with messages = get_flashed_messages() %}
+<!-- {% with messages = get_flashed_messages() %}
 {% if messages %}
     <div class="alert alert-danger w-50 mx-auto">
         {{ messages[0] }}.
     </div>
 {% endif %}
-{% endwith %}
-<h2 class="title shadow p-3 mb-5 w-50 mx-auto">Login
+{% endwith %} -->
+<!-- <div class="row"> -->
+<h2 class="title shadow p-3 mb-5 w-50 col-md-4 offset-md-4 mx-auto">Login
     <style>
         h2{
             text-align: center;
@@ -17,7 +18,9 @@
     </style>
 </h2>
 </br>
-<div class="box shadow p-3 mb-5 w-50 mx-auto">
+<!-- </div> -->
+<!-- <div class="row"> -->
+<div class="box shadow p-3 mb-5 w-50 col-md-4 offset-md-4 mx-auto">
     <form class="form-signin" method = 'POST' action = '/login'>
         <div class="form-group">
             <label for="username" class="sr-only">Username</label>
@@ -39,5 +42,6 @@
         </div>
     </form>
 </div>
+<!-- </div> -->
 
 {% endblock %}

@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{% block title %} Here are your activities: {% endblock %}</h1>
+    <h1 class="title shadow p-3 mb-5">{% block title %} Here are your activities: {% endblock %}</h1>
     <style>
         h1{
-            border: 2px rgb(208, 167, 255) solid;
             text-align: center;
             background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
             box-shadow: 5px 6px #808080 ;
         }
     </style>
-    <h1>
+    <h1 class="title shadow p-3 mb-5">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">How are you feeling today?</button>
     
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
