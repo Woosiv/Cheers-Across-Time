@@ -32,6 +32,7 @@ def signup():
         cPassword = request.form['passwordConfirm']
         firstName = request.form['firstName']
         lastName = request.form['lastName']
+        email = request.form['email']
 
         # Compares password to confirmation of password
         if password != cPassword:
