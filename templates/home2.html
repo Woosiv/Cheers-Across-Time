@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    h1{
+        text-align: center;
+        background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
+    }
+    .thumb-post {
+        object-fit: none; /* Do not scale the image */
+        object-position: center; /* Center the image within the element */
+        width: 100%;
+        max-height: 350px;
+        margin-bottom: 1rem;
+    }
+    #box{
+        background-color: rgb(238, 238, 238);
+    }
+</style>
+
+    <h1 class="title shadow p-3 mb-5 col-md-10 offset-md-1">{% block title %} Welcome to Cheers Across Time! {% endblock %}
+        
+    </h1>
+    <img class="thumb-post p-3 mb-5" src="https://welcomeallsmiles.com/wp-content/uploads/2019/01/Friends-at-an-Event-1.jpg">
+    <div class="box shadow p-3 mb-5 col-md-10 offset-md-1">
+        <p> Here at C.A.T. Our goal is to fully dedicate our time and effort into keeping you happy and on your toes. Sometimes all you need is a little smile to get yourself back up and we are here to give that to you. </p>
+    </div>
+    <style>
+        .box{
+            text-align: center;
+            background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
+        }
+    </style>
+    <div class="box shadow p-3 mb-5 col-md-10 offset-md-1">
+        <p> C.A.T. stands for Cheers Across Time. Our web based application is a check in routine that helps you manage your own daily life and moods. Feeling a little down? C.A.T. has got your back! View hundreds of thousands of photos of kittens and receive as many inspirational quotes as you could imagine!</p>
+    </div>
+    <div class="box shadow p-3 mb-5 col-md-10 offset-md-1">
+        <p> Creators & Contact Information: <br>
+            Hansi Hundsberger: hhundsbe@uci.edu <br>
+            Ryan Lam: rlam10@uci.edu <br>
+            William Hsieh: wnshieh@uci.edu <br>
+            Stanley Ho <br>
+            Destin Wong
+        </p>
+    </div>
+    <!-- <h2 class="ball">
+        <style>
+            h2{
+            width: 15px;
+            height: 15px;
+            background-color: rgb(57, 189, 254);
+            position: relative;
+            animation-name: ball;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+            box-shadow: 5px 6px rgb(173, 173, 173);
+            border: 1px rgb(152, 173, 165) solid;
+            }
+
+            @keyframes ball {
+                0%   {background-color:rgb(57, 189, 254); left:-30px; top:0px;}
+                25%  {background-color:rgb(57, 189, 254); left:-30px; top:-115px;}
+                50%  {background-color:rgb(1, 226, 188); left:1120px; top:-115px;}
+                75%  {background-color:rgb(1, 226, 188); left:1120px; top:0px;}
+                100% {background-color:rgb(57, 189, 254); left:-30px; top:0px;}
+            }
+        </style>
+    </h2>
+    <h3 class="ball">
+        <style>
+            h3{
+            width: 15px;
+            height: 15px;
+            background-color: rgb(57, 189, 254);
+            position: relative;
+            animation-name: ball2;
+            animation-duration: 7s;
+            animation-iteration-count: infinite;
+            box-shadow: 5px 6px gray;
+            border: 1px rgb(152, 173, 165) solid;
+            }
+
+            @keyframes ball2 {
+                0%   {background-color:rgb(1, 226, 188); left:1120px; top:-145px;}
+                25%  {background-color:rgb(1, 226, 188); left:1120px; top:-30px;}
+                50%  {background-color:rgb(57, 189, 254); left:-30px; top:-30px;}
+                75%  {background-color:rgb(57, 189, 254); left:-30px; top:-145px;}
+                100% {background-color:rgb(1, 226, 188); left:1120px; top:-145px;}
+            }
+        </style>
+    </h3> -->
+{% endblock %}
