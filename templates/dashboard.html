@@ -24,20 +24,99 @@
                     max-width: 100%;
                     width: 100%;
                     height: 100%;
-                    max-height: 600px;
+                    max-height: 500px;
                     object-fit: contain;
+                    object-position: center;
                 } 
             </style>
         </div>
     </div>
     <div id = "box" class = "col-md-4 offset-md-1 shadow">
-        <p class="quote">{{quote}}
-            <style>
-                 .quote{
-                    overflow: hidden;
-                    }
-            </style>
-        </p>
+        <canvas id="myChart">
+            <script>var ctx = document.getElementById('myChart').getContext('2d');
+            
+            var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+            gradientStroke.addColorStop(0, "#80b6f4");
+            gradientStroke.addColorStop(0.2, "#94d973");
+            gradientStroke.addColorStop(0.5, "#fad874");
+            gradientStroke.addColorStop(1, "#f49080");
+            Chart.plugins.register({
+              beforeDraw: function(chartInstance, easing) {
+                var ctx = chartInstance.chart.ctx;
+                ctx.fillStyle = 'rgb(12, 125, 125)'; // your color here
+            
+                var chartArea = chartInstance.chartArea;
+                ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+              }
+            });
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+            
+                // The data for our dataset
+                data: {
+                    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    datasets: [{
+                        label: 'My depression level',
+                        fill:false,
+                        borderColor: 'rgb(130, 100, 255)',
+                        backgroundColor:'rgb(130, 100, 255)',
+                        data: [0, 10, 5, 2, 20, 30, 40],
+                        pointRadius:10,
+                        pointHoverRadius:20,
+                        
+                        options:{legend:{position:'bottom'},
+                                 title:{display:true,
+                                        text:'my depression',
+                                        position:top
+                                       }
+                                  }
+            
+                    },{label: 'Also my depression level',
+                        fill:false,
+            pointRadius:15,
+                        backgroundColor:'rgb(130, 255, 200)',
+                        borderColor: 'rgb(130, 255, 200)',
+                        data: [10, 20, 30, 40, 30, 30, 40]}]
+            
+            
+                        
+                },
+            
+                // Configuration options go here
+                options: {chartArea:{backgroundColor:'rgb(0,255,200,0.4)'},
+                            responsive: true,
+                            legend: {
+                                position: 'bottom',
+                            },
+                            hover: {
+                                mode: 'index'
+                            },
+                            scales: {
+                                xAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Day'
+                                    }
+                                }],
+                                yAxes: [{
+                                    display: true,
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: 'Depression'
+                                    }
+                                }]
+                            },
+                            title: {
+                                                    fontSize: 24,
+                                                    fontColor:'rgb(130,255,255)',
+                                display: true,
+                                text: 'My depression level'
+                            }
+                        }
+            }); </script>
+            </canvas>
     </div>
 </div>
 <div class = "row">
@@ -88,11 +167,13 @@
           </h1>
     </div>
     <div id = "box" class = "col-md-4 offset-md-1 shadow">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <p class="quote">{{quote}}
+            <style>
+                 .quote{
+                    overflow: hidden;
+                    }
+            </style>
+        </p>
     </div>
 </div>
 
