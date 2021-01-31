@@ -28,37 +28,36 @@
                     <div class="modal-header" style="width:1250px;">
                       <h5 class="modal-title" id="exampleModalLabel">How are you feeling today?</h5>
                     </div>
+                    <form method="POST" action="/dashboard/{{username}}">
                     <div class="modal-body" style="width:1250px;">
                         <div class = "row justify-content-md-center">
                             <div class = "col-md-2">
-                        <button type = "submit" name = "crying" value = "0" style="background-color: transparent; border-color: transparent;">
+                        <button type="submit" name = "crying" style="background-color: transparent; border-color: transparent;">
                         <img src="https://images.emojiterra.com/google/android-11/128px/1f62d.png"/>
                         </button>
                         </div>
                         <div class = "col-md-2">
-                        <button type = "submit" name = "sad" value = "1" style="background-color: transparent; border-color: transparent;">
+                        <button type="submit" name = "sad" style="background-color: transparent; border-color: transparent;">
                         <img src="https://images.emojiterra.com/google/android-11/128px/2639.png"/>
                         </button>
                     </div>
                     <div class = "col-md-2">
-                        <button type = "submit" name = "neutral" value = "2" style="background-color: transparent; border-color: transparent;">
+                        <button type="submit" name = "neutral"  style="background-color: transparent; border-color: transparent;">
                         <img src="https://images.emojiterra.com/google/android-11/128px/1f610.png"/>
                         </button>
                     </div>
                     <div class = "col-md-2">
-                        <button type = "submit" name = "smiling" value = "3" style="background-color: transparent; border-color: transparent;">
+                        <button type="submit" name = "smiling"  style="background-color: transparent; border-color: transparent;">
                         <img src="https://images.emojiterra.com/google/android-11/128px/1f642.png"/>
                         </button>
                     </div>
                     <div class = "col-md-2">
-                        <button type = "submit" name = "laughing" value = "4" style="background-color: transparent; border-color: transparent;">
+                        <button type="submit" name = "laughing"  style="background-color: transparent; border-color: transparent;">
                         <img src="https://images.emojiterra.com/google/android-11/128px/1f604.png"/>
                         </button>
                     </div>
                     </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                    </form>
                     </div>
                   </div>
                 </div>
@@ -73,4 +72,10 @@
         <br>
     </div>
 </div>
+
+<script>
+    function submitFunction(value) {
+        fetch('/Mood')
+    }
+</script>
 {% endblock %}
