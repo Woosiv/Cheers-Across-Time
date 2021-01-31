@@ -9,3 +9,14 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(100))
     moodTracker = db.Column(db.String(8))
     email = db.Column(db.String(100), unique=True)
+
+    def updateMood(self, number):
+        if len(self.moodTracker) < 7:
+            self.moodTracker += number
+        else:
+            self.moodTracker = self.moodTracker[1:] + number
+        db.session.merge(self)
+        db.session.commit()
+
+    def getMood(self):
+        return self.moodTracker
