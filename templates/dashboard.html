@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<h class = "title shadow"> Welcome {{username}} </h>  
+<div class ="row">
+<h class = "title shadow p-3 offset-md-1"> Welcome, {{username}} </h> 
+</div> 
 <style>
     h{
         background-color: rgb(238, 238, 238);
@@ -12,7 +14,7 @@
     }
 </style>
 <div class = "row">
-    <div id = "box" class = "col-md-7 shadow">
+    <div id = "box" class = "col-md-5 offset-md-1 shadow">
         <div class="cat"><img src="{{catImage}}" class="img-Thumbnail"/>
             <style>
                  .cat{
@@ -39,7 +41,7 @@
     </div>
 </div>
 <div class = "row">
-    <div id = "box" class = "col-md-7 shadow">
+    <div id = "box" class = "col-md-5 shadow  offset-md-1">
         <h1>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">How are you feeling today?</button>
         

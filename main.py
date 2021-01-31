@@ -21,10 +21,10 @@ def activity():
 def dashboard(username=None):
     if (current_user.username != username):
         flash("You don't have access to this page!")
-        return redirect(url_to('main.dashboard'))
+        return redirect(url_for('main.dashboard', username=current_user.username, catImage=getCat(), quote=getQuote()))
+
     if request.method == "POST":
         print(request.form)
         print(request.form["name"])
-    print(getCat())
-    return render_template('dashboard.html', username=username, catImage=getCat(), quote=getQuote())
+    return render_template("dashboard.html", username=current_user.username, catImage=getCat(), quote=getQuote())
 
