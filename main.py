@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
 from cats import getCat
+from quote import getQuote
 
 main = Blueprint('main', __name__)
 
@@ -22,5 +23,5 @@ def dashboard(username=None):
         print(request.form)
         print(request.form["name"])
     print(getCat())
-    return render_template('dashboard.html', username=username, catImage=getCat())
+    return render_template('dashboard.html', username=username, catImage=getCat(), quote=getQuote())
 
