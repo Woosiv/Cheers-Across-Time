@@ -10,23 +10,24 @@
 
     <title>{% block title %} {% endblock %}</title>
     <style>
-    *{
-      padding: 10px;
-      border-radius: 20px ;
-    }
+
     .title{
       font-family: Arial, Helvetica, sans-serif;
       font-size: 300%;
       color: rgb(34, 24, 24);
       box-shadow: 5px 6px #808080 ;
     }
+    *{
+      padding: 10px;
+      border-radius: 20px ; 
+    }
     .sidebar {
       height: 100%;
       width: 0;
+      right: 0;
       position: fixed;
-      z-index: 1;
+      z-index: 0;
       top: 0;
-      left: 0;
       background-color: #111;
       overflow-x: hidden;
       transition: 0.5s;
@@ -42,7 +43,7 @@
       color: #818181;
       display: block;
       transition: 0.3s;
-      text-align: left;
+      text-align: right;
     }
     
     .sidebar a:hover {
@@ -71,10 +72,26 @@
     }
     
     #main {
-      transition: margin-left .5s;
-      padding: 16px;
-      text-align: left;
+      transition: margin-right .5s;
+      padding: 20px;
+      text-align: right;
     }
+    /* body{
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 7s ease infinite;
+    }
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+      } */
   </style>
   </head>
   <body>
@@ -93,13 +110,22 @@
     <script>
     function openNav() {
       document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
+      document.getElementById("main").style.marginRight = "250px";
     }
     
     function closeNav() {
       document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
+      document.getElementById("main").style.marginRight= "0";
     }
+
+    function getHeight(){
+      return window.screen.height;
+    }
+
+    function getWidth(){
+      return window.screen.width;
+    }
+
     </script>
 
     <div class="container">
