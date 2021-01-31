@@ -34,7 +34,7 @@ def dashboard(username=None):
         data.append(int(num))
 
     if (current_user.username != username):
-        data += [0] * (7-len(data))
+        data = [0] * (7-len(data)) + data
         flash("You don't have access to this page!")
         return redirect(url_for('main.dashboard', username=current_user.username, catImage=getCat(), quote=getQuote(), item=data))
 
@@ -49,5 +49,5 @@ def dashboard(username=None):
         data.append(int(current_user.getMood()[-1]))
         if len(data) > 7:
             data.pop(0)
-    data += [0] * (7-len(data))
+    data = [0] * (7-len(data)) + data
     return render_template("dashboard.html", username=current_user.username, catImage=getCat(), quote=getQuote(), item=data)
