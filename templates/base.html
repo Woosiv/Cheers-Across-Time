@@ -65,6 +65,9 @@
       color: white;
       padding: 10px 15px;
       border: none;
+      position: absolute;
+      top: 30px;
+      left: 40px;
     }
     
     .openbtn:hover {
@@ -80,18 +83,18 @@
     #content { 
       border:1px solid #000; 
       height:700px; 
-      margin-left: 200px;;
-      padding:10px; 
+      margin-left: 200px;
+      padding:10px;
     }
 
     @media screen and (max-height: 450px) {
       .sidebar {padding-top: 15px;}
       .sidebar a {font-size: 18px;}
     }
-    /* body{
-        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    body{
+        background: linear-gradient(-90deg,rgb(29, 214, 183), rgb(24, 159, 226),rgb(150, 90, 248));
         background-size: 400% 400%;
-        animation: gradient 7s ease infinite;
+        animation: gradient 30s infinite;
     }
     @keyframes gradient {
         0% {
@@ -103,11 +106,15 @@
         100% {
             background-position: 0% 50%;
         }
-      } */
+      }
   </style>
   </head>
   <body>
     <title id="title">{% block title %} {% endblock %}</title>
+
+    <div class="container">
+      {% block content %} {% endblock %}
+    </div>
 
     <div id="main">
       <button class="openbtn" onclick="openNav()">☰</button>  
@@ -145,10 +152,6 @@
     }
 
     </script>
-
-    <div class="container">
-        {% block content %} {% endblock %}
-    </div>
 
     <!-- jQuery,Popper.js,Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
