@@ -52,7 +52,8 @@ def signup():
         hashedPassword = generate_password_hash(password, method='sha256')
 
         # Create a new user user using the form data.
-        new_user = User(firstName = firstName, lastName = lastName, username=username, password=hashedPassword, email=email)
+        new_user = User(firstName = firstName, lastName = lastName,
+            username=username, password=hashedPassword, email=email, moodTracker="")
 
         # add the new user to the database
         db.session.add(new_user)

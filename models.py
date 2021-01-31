@@ -7,3 +7,5 @@ class User(UserMixin, db.Model):
     lastName = db.Column(db.String(100))
     username = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
+    moodTracker = db.Column(db.String(8))
+    email = db.Column(db.String(100), unique=True)
