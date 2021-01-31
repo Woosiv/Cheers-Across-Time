@@ -123,9 +123,8 @@
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a class = "text-nowrap" href="{{ url_for('main.dashboard', username=current_user.username)}}">Dashboard</a>
-      <a class = "text-nowrap" href="{{ url_for('main.root')}}">About C.A.T.</a>
-      <a class = "text-nowrap" href="{{ url_for('auth.login')}}">Login</a>
-      <a class = "text-nowrap" href="{{ url_for('auth.signup')}}">Sign Up</a>
+      <a class = "text-nowrap" href="{{ url_for('main.home')}}">About C.A.T.</a>
+      <a class = "text-nowrap" href="{{ url_for('auth.logout')}}">Log out</a>
     </div>
 
     <!-- <div id="content">
