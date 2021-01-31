@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
+from flask_login import login_required, current_user
 
 main = Blueprint('main', __name__)
 
@@ -12,4 +13,12 @@ def root():
 @main.route('/Activity')
 def activity():
     return render_template('activity.html')
+
+@main.route('/dashboard/<username>', methods=["GET", "POST"])
+@login_required
+def dashboard(username=None):
+    if request.method == "POST":
+        print(request.form)
+        print(request.form["name"])
+    return render_template('dashboard.html', username=username)
 
