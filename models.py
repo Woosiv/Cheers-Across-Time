@@ -11,10 +11,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
 
     def updateMood(self, number):
-        print("before", self.moodTracker)
         if len(self.moodTracker) < 7:
             self.moodTracker += number
-            print("after", self.moodTracker)
         else:
             self.moodTracker = self.moodTracker[1:] + number
         db.session.merge(self)
