@@ -122,8 +122,8 @@
 
     <div id="mySidebar" class="sidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a class = "text-nowrap" href="{{ url_for('main.root')}}">Mental Health</a>
-      <a class = "text-nowrap" href="{{ url_for('main.activity')}}">Activity</a>
+      <a class = "text-nowrap" href="{{ url_for('main.dashboard', username=current_user.username)}}">Dashboard</a>
+      <a class = "text-nowrap" href="{{ url_for('main.root')}}">About C.A.T.</a>
       <a class = "text-nowrap" href="{{ url_for('auth.login')}}">Login</a>
       <a class = "text-nowrap" href="{{ url_for('auth.signup')}}">Sign Up</a>
     </div>
