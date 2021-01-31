@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required
 from models import User
 from exts import db
 
@@ -32,10 +32,12 @@ def signup():
         cPassword = request.form.get('passwordConfirm')
         firstName = request.form['firstName']
         lastName = request.form['lastName']
+        email = request.form['email']
 
-        # # Compares password to confirmation of password
-        # if password != cPassword:
-        #     flash("Password and password confirmation do not match.")
+        # Compares password to confirmation of password
+        if password != cPassword:
+            flash("Password and password confirmation do not match.")
+            return redirect(url_for('auth.signup'))
 
         # user is a User that has that username
         user = User.query.filter_by(username=username).first()
@@ -50,7 +52,7 @@ def signup():
         hashedPassword = generate_password_hash(password, method='sha256')
 
         # Create a new user user using the form data.
-        new_user = User(firstName = firstName, lastName = lastName, username=username, password=hashedPassword)
+        new_user = User(firstName = firstName, lastName = lastName, username=username, password=hashedPassword, email=email)
 
         # add the new user to the database
         db.session.add(new_user)
@@ -61,7 +63,7 @@ def signup():
         return render_template('signup.html')
 
 @auth.route('/logout')
-#@login_required
-def legout():
+@login_required
+def logout():
     logout_user()
     return redirect(url_for('main.root'))

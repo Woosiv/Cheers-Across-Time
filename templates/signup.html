@@ -2,43 +2,42 @@
 
 {% block content %}
 
-    <h2 class="title shadow p-3 mb-5">Sign Up
-        <style>
-            h2{
-                text-align: center;
-                background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
-            }
-        </style>
-    </h2>
+<h2 class="title shadow p-3 mb-5 w-50 mx-auto">Sign Up
+    <style>
+        h2{
+            text-align: center;
+            background-image: linear-gradient(to right,rgb(57, 189, 254),rgb(1, 226, 188));
+        }
+    </style>
+</h2>
 </br>
-    <div class="box shadow p-3 mb-5 ">
-        <form class="form-signin" method = 'POST' action = '/signup'>
-            <div class="form-row">
-                <div class="col">
-                    <label for="firstName" class="sr-only">First Name</label>
-                    <input type="firstName" name="firstName" class="form-control" placeholder="First Name" required>
-                </div>
-                <div class="col">
-                    <label for="lastName" class="sr-only">Last Name</label>
-                    <input type="lastName" name="lastName" class="form-control" placeholder="Last Name" required>
-                </div>
+<div class="box shadow p-3 mb-5 w-50 mx-auto">
+    <form class="form-signin" method = 'POST' action = '/signup'>
+        <div class="form-row">
+            <div class="col">
+                <label for="firstName" class="sr-only">First Name</label>
+                <input type="firstName" name="firstName" class="form-control" placeholder="First Name" required>
             </div>
-            <div class="form-group">
-                <label for="username" class="sr-only">Username</label>
-                <input type="username" name="username" class="form-control" placeholder="Username" required>
-                </br>
-                <label for="email" class="sr-only">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Username" required>
-                </br>
-                <label for="password" class="sr-only">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
-                </br>
-                <label for="passwordConfirm" class="sr-only">Confirm Password</label>
-                <input type="password" name="passwordConfirm" class="form-control" placeholder="Confirm Password" required>
-                </br>
-            <button class="btn btn-mid btn-primary btn-block">Sign in</button>
+            <div class="col">
+                <label for="lastName" class="sr-only">Last Name</label>
+                <input type="lastName" name="lastName" class="form-control" placeholder="Last Name" required>
             </div>
-        </form>
-    </div>
-
+        </div>
+        <div class="form-group">
+            <label for="username" class="sr-only">Username</label>
+            <input type="username" name="username" class="form-control" placeholder="Username" required>
+            </br>
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Email" required>
+            </br>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </br>
+            <label for="passwordConfirm" class="sr-only">Confirm Password</label>
+            <input type="password" name="passwordConfirm" class="form-control" placeholder="Confirm Password" required>
+            </br>
+        <button class="btn btn-mid btn-primary btn-block">Sign in</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
