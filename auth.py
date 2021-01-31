@@ -20,24 +20,22 @@ def login():
             return redirect(url_for('auth.login'))
         else:
             login_user(user)
-            return redirect(url_for('main.root'))
+            return redirect(url_for('main.dashboard', username=username))
     else:
         return render_template("login.html")
 
 @auth.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        cPassword = request.form.get('passwordConfirm')
+        username = request.form['username']
+        password = request.form['password']
+        cPassword = request.form['passwordConfirm']
         firstName = request.form['firstName']
         lastName = request.form['lastName']
-        email = request.form['email']
 
-        # Compares password to confirmation of password
-        if password != cPassword:
-            flash("Password and password confirmation do not match.")
-            return redirect(url_for('auth.signup'))
+        # # Compares password to confirmation of password
+        # if password != cPassword:
+        #     flash("Password and password confirmation do not match.")
 
         # user is a User that has that username
         user = User.query.filter_by(username=username).first()
@@ -52,7 +50,7 @@ def signup():
         hashedPassword = generate_password_hash(password, method='sha256')
 
         # Create a new user user using the form data.
-        new_user = User(firstName = firstName, lastName = lastName, username=username, password=hashedPassword, email=email)
+        new_user = User(firstName = firstName, lastName = lastName, username=username, password=hashedPassword)
 
         # add the new user to the database
         db.session.add(new_user)
@@ -63,7 +61,7 @@ def signup():
         return render_template('signup.html')
 
 @auth.route('/logout')
-@login_required
+#@login_required
 def logout():
     logout_user()
     return redirect(url_for('main.root'))
