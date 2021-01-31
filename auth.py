@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user
+from models import User
+from exts import db
 
 auth = Blueprint('auth', __name__)
 
@@ -8,7 +10,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
-        user = request.form['username']
+        username = request.form['username']
         password = request.form['password']
 
         user = User.query.filter_by(username=username).first()

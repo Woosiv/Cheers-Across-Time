@@ -2,12 +2,9 @@ from flask import Flask, render_template, request
 from threading import Timer
 import time
 import webbrowser
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, LoginManager
-
-
-# init SQLAlchemy
-db = SQLAlchemy()
+from flask_login import LoginManager
+from exts import db
+from models import User
 
 app = Flask(__name__, static_url_path='', static_folder='static')
 
@@ -36,14 +33,6 @@ db.create_all(app=app)
 def open_browser():
     url = "http://127.0.0.1:5000/"
     webbrowser.open_new_tab(url)
-
-class User(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(100))
-    lastName = db.Column(db.String(100))
-    username = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
-
 
 if __name__ == '__main__':
     #Timer(0, open_browser).start()
