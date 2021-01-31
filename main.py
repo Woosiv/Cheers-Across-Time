@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
+from cats import getCat
 
 main = Blueprint('main', __name__)
 
@@ -20,5 +21,6 @@ def dashboard(username=None):
     if request.method == "POST":
         print(request.form)
         print(request.form["name"])
-    return render_template('dashboard.html', username=username)
+    print(getCat())
+    return render_template('dashboard.html', username=username, catImage=getCat())
 
