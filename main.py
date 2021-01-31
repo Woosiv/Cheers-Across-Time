@@ -50,5 +50,4 @@ def dashboard(username=None):
         if len(data) > 7:
             data.pop(0)
     data += [0] * (7-len(data))
-    print(data)
     return render_template("dashboard.html", username=current_user.username, catImage=getCat(), quote=getQuote(), item=data)
