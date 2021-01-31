@@ -9,7 +9,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def root():
     print("sending to home")
-    return render_template('login.html')
+    return render_template('home.html')
 
 #Activity
 @main.route('/Activity')
@@ -19,6 +19,10 @@ def activity():
 @main.route('/Home')
 def home():
     return render_template('home.html')
+
+@main.route('/Home2')
+def home2():
+    return render_template('home2.html')
 
 @main.route('/dashboard/<username>', methods=["GET", "POST"])
 @login_required
