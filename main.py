@@ -23,9 +23,16 @@ def home():
 @main.route('/dashboard/<username>', methods=["GET", "POST"])
 @login_required
 def dashboard(username=None):
+    # Obtain moodTracker and convert to list of int
+    phrase = current_user.getMood()
+    data = []
+    for num in phrase:
+        data.append(int(num))
+
+
     if (current_user.username != username):
         flash("You don't have access to this page!")
-        return redirect(url_for('main.dashboard', username=current_user.username, catImage=getCat(), quote=getQuote()))
+        return redirect(url_for('main.dashboard', username=current_user.username, catImage=getCat(), quote=getQuote(), item=data))
 
     if request.method == "POST":
         # Convert emoji rating to a string form of a number
@@ -34,4 +41,9 @@ def dashboard(username=None):
         # Modify the database
         current_user.updateMood(number)
 
-    return render_template("dashboard.html", username=current_user.username, catImage=getCat(), quote=getQuote())
+        # Update data list
+        data.append(int(current_user.getMood()[-1]))
+        if len(data > 7):
+            data.pop(0)
+
+    return render_template("dashboard.html", username=current_user.username, catImage=getCat(), quote=getQuote(), item=data)
