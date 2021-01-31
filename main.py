@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
 from cats import getCat
 from quote import getQuote
@@ -9,7 +9,7 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def root():
     print("sending to home")
-    return render_template('login.html')
+    return render_template('home.html')
 
 #Activity
 @main.route('/Activity')
@@ -20,6 +20,10 @@ def activity():
 def home():
     return render_template('home.html')
 
+@main.route('/Home2')
+def home2():
+    return render_template('home2.html')
+
 @main.route('/dashboard/<username>', methods=["GET", "POST"])
 @login_required
 def dashboard(username=None):
@@ -29,8 +33,8 @@ def dashboard(username=None):
     for num in phrase:
         data.append(int(num))
 
-
     if (current_user.username != username):
+        data += [0] * (7-len(data))
         flash("You don't have access to this page!")
         return redirect(url_for('main.dashboard', username=current_user.username, catImage=getCat(), quote=getQuote(), item=data))
 
@@ -43,7 +47,7 @@ def dashboard(username=None):
 
         # Update data list
         data.append(int(current_user.getMood()[-1]))
-        if len(data > 7):
+        if len(data) > 7:
             data.pop(0)
-
+    data += [0] * (7-len(data))
     return render_template("dashboard.html", username=current_user.username, catImage=getCat(), quote=getQuote(), item=data)
