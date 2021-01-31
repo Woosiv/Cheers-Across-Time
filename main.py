@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash
 from flask_login import login_required, current_user
 from cats import getCat
 from quote import getQuote
@@ -19,9 +19,10 @@ def activity():
 @main.route('/dashboard/<username>', methods=["GET", "POST"])
 @login_required
 def dashboard(username=None):
-    if current_user.username != username:
-        flash("You can't access someone else's dashboard")
+    if (current_user.username != username):
+        flash("You don't have access to this page!")
         return redirect(url_for('main.dashboard', username=current_user.username, catImage=getCat(), quote=getQuote()))
+
     if request.method == "POST":
         print(request.form)
         print(request.form["name"])
