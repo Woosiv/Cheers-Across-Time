@@ -61,7 +61,7 @@ def signup():
         return render_template('signup.html')
 
 @auth.route('/logout')
-@login_required
+#@login_required
 def legout():
     logout_user()
     return redirect(url_for('main.root'))
